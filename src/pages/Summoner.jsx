@@ -5,7 +5,7 @@ import RankedStats from "../components/RankedStats";
 import SummonerDetails from "../components/SummonerDetails";
 import useRankedStats from "../hooks/useRankedStats";
 import Loading from "../components/Loading";
-import MatchHistory from "../components/matchHistory";
+import MatchHistory from "../components/MatchHistory";
 import useMatchHistory from "../hooks/useMatchHistory";
 import useSummonerStats from "../hooks/UseSummonerStats";
 import Header from "../components/Header";
