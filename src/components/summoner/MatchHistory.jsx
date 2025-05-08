@@ -1,4 +1,4 @@
-import { calculateSummonerStats } from "../utils/summonerStats";
+import { calculateSummonerStats } from "../../utils/summonerStats";
 import Match from "./Match";
 import RecentGamesTab from "./RecentGamesTab";
 

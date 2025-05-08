@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/Home";
 import MainLayout from "../layout/MainLayout";
 import Summoner from "../pages/Summoner";
+import Champions from "../pages/champions";
 
 const router = createBrowserRouter([
   {
@@ -10,6 +11,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> },
       { path: "/summoners/:region/:gameName", element: <Summoner /> },
+      { path: "/champions", element: <Champions /> },
     ],
   },
 ]);

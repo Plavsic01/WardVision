@@ -1,14 +1,13 @@
 import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import SearchBar from "../components/SearchBar";
-import RankedStats from "../components/RankedStats";
-import SummonerDetails from "../components/SummonerDetails";
+import RankedStats from "../components/summoner/RankedStats";
+import SummonerDetails from "../components/summoner/SummonerDetails";
 import useRankedStats from "../hooks/useRankedStats";
 import Loading from "../components/Loading";
-import MatchHistory from "../components/MatchHistory";
+import MatchHistory from "../components/summoner/MatchHistory";
 import useMatchHistory from "../hooks/useMatchHistory";
 import useSummonerStats from "../hooks/UseSummonerStats";
-import Header from "../components/Header";
 
 const Summoner = () => {
   const { region, gameName } = useParams();
@@ -38,12 +37,11 @@ const Summoner = () => {
   return (
     <main>
       <nav className="bg-[#5383E8]">
-        <Header />
         <SearchBar />
         <Navbar />
       </nav>
 
-      {!isLoadingSummoner ? (
+      {!isLoadingSummoner && statusStats !== "pending" ? (
         <SummonerDetails
           name={summonerInfo.gameName}
           tag={summonerInfo.tagLine}
