@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/Home";
 import MainLayout from "../layout/MainLayout";
 import Summoner from "../pages/Summoner";
-import Champions from "../pages/champions";
+import Champions from "../pages/Champions";
 
 const router = createBrowserRouter([
   {
