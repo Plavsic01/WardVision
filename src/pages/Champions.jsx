@@ -7,7 +7,7 @@ import ChampionDetails from "../components/champions/ChampionDetails";
 import useChampions from "../hooks/useChampions";
 import useChampionStats from "../hooks/useChampionStats";
 import Loading from "../components/Loading";
-import { useChampionContext } from "../context/championContext";
+import { useChampionContext } from "../context/ChampionContext";
 
 const Champions = () => {
   const { data: champions, isLoading, isError } = useChampions();

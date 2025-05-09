@@ -1,5 +1,5 @@
 import { Star } from "lucide-react";
-import { useChampionContext } from "../../context/championContext";
+import { useChampionContext } from "../../context/ChampionContext";
 
 const Champion = ({ champion }) => {
   const { handleSelectedChampion } = useChampionContext();
