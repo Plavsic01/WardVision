@@ -3,7 +3,7 @@ import Home from "../pages/Home";
 import MainLayout from "../layout/MainLayout";
 import Summoner from "../pages/Summoner";
 import Champions from "../pages/Champions";
-import { ChampionContext } from "../context/championContext";
+import { ChampionContext } from "../context/ChampionContext";
 
 const router = createBrowserRouter([
   {
