@@ -11,7 +11,7 @@ const fetchMatchHistory = async (puuid, region) => {
 const useMatchHistory = (puuid, region) => {
   const {
     data: matchHistory,
-    error,
+    isError,
     isLoading,
     isFetching,
     status,
@@ -21,7 +21,7 @@ const useMatchHistory = (puuid, region) => {
     enabled: !!puuid && !!region,
   });
 
-  return { matchHistory, error, isLoading, isFetching, status };
+  return { matchHistory, isError, isLoading, isFetching, status };
 };
 
 export default useMatchHistory;

@@ -3,6 +3,7 @@ import Home from "../pages/Home";
 import MainLayout from "../layout/MainLayout";
 import Summoner from "../pages/Summoner";
 import Champions from "../pages/Champions";
+import { ChampionContext } from "../context/championContext";
 
 const router = createBrowserRouter([
   {
@@ -11,7 +12,14 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> },
       { path: "/summoners/:region/:gameName", element: <Summoner /> },
-      { path: "/champions", element: <Champions /> },
+      {
+        path: "/champions",
+        element: (
+          <ChampionContext>
+            <Champions />
+          </ChampionContext>
+        ),
+      },
     ],
   },
 ]);

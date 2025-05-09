@@ -7,7 +7,7 @@ import useRankedStats from "../hooks/useRankedStats";
 import Loading from "../components/Loading";
 import MatchHistory from "../components/summoner/MatchHistory";
 import useMatchHistory from "../hooks/useMatchHistory";
-import useSummonerStats from "../hooks/UseSummonerStats";
+import useSummonerStats from "../hooks/useSummonerStats";
 
 const Summoner = () => {
   const { region, gameName } = useParams();
@@ -23,7 +23,7 @@ const Summoner = () => {
     status: statusStats,
     isLoading: isLoadingStats,
     isFetching: isFetchingStats,
-    error: errorStats,
+    isError: isErrorStats,
   } = useRankedStats(summonerInfo.puuid, region);
 
   const {
@@ -31,7 +31,7 @@ const Summoner = () => {
     status: statusHistory,
     isLoading: isLoadingHistory,
     isFetching: isFetchingHistory,
-    error: errorHistory,
+    isError: isErrorHistory,
   } = useMatchHistory(summonerInfo.puuid, region);
 
   return (
@@ -56,7 +56,7 @@ const Summoner = () => {
       <div className="flex flex-col gap-0.5 md:gap-2 md:flex-row md:justify-center">
         <Loading isLoading={isLoadingStats} />
 
-        {statusStats !== "pending" && !errorStats && !isLoadingStats && (
+        {statusStats !== "pending" && !isErrorStats && !isLoadingStats && (
           <div>
             {rankedStats.map((ranked) => (
               <RankedStats
@@ -72,7 +72,7 @@ const Summoner = () => {
           <Loading isLoading={isLoadingHistory} />
 
           {statusHistory !== "pending" &&
-            !errorHistory &&
+            !isErrorHistory &&
             !isLoadingHistory &&
             matchHistory.length > 0 && (
               <MatchHistory

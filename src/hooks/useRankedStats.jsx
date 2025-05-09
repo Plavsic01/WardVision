@@ -9,7 +9,7 @@ const fetchRankedStats = async (puuid, region) => {
 const useRankedStats = (puuid, region) => {
   const {
     data: rankedStats,
-    error,
+    isError,
     isLoading,
     isFetching,
     status,
@@ -19,7 +19,7 @@ const useRankedStats = (puuid, region) => {
     enabled: !!puuid && !!region,
   });
 
-  return { rankedStats, error, isLoading, isFetching, status };
+  return { rankedStats, isError, isLoading, isFetching, status };
 };
 
 export default useRankedStats;
