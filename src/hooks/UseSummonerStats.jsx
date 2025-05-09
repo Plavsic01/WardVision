@@ -26,18 +26,18 @@ const useSummonerStats = (region, summonerName, delay = 0) => {
     initialData: {},
   });
 
-  useEffect(() => {
-    if (isFirstRender.current === true) {
-      isFirstRender.current = false;
-      return;
-    }
+  // useEffect(() => {
+  //   if (isFirstRender.current === true) {
+  //     isFirstRender.current = false;
+  //     return;
+  //   }
 
-    const timeout = setTimeout(() => {
-      query.refetch();
-    }, delay);
+  //   const timeout = setTimeout(() => {
+  //     query.refetch();
+  //   }, delay);
 
-    return () => clearTimeout(timeout);
-  }, [summonerName, region, delay]);
+  //   return () => clearTimeout(timeout);
+  // }, [summonerName, region, delay]);
 
   return {
     data: query.data?.data ?? {},
