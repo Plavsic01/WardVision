@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import useSummonerStats from "../hooks/useSummonerStats";
 import Navbar from "../components/Navbar";
 import SearchBar from "../components/SearchBar";
 import RankedStats from "../components/summoner/RankedStats";
@@ -7,7 +8,6 @@ import useRankedStats from "../hooks/useRankedStats";
 import Loading from "../components/Loading";
 import MatchHistory from "../components/summoner/MatchHistory";
 import useMatchHistory from "../hooks/useMatchHistory";
-import useSummonerStats from "../hooks/useSummonerStats";
 
 const Summoner = () => {
   const { region, gameName } = useParams();
