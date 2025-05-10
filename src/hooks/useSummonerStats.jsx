@@ -11,7 +11,7 @@ const fetchSummonerStats = async (region, summonerName) => {
   const tagLine = gameTag ?? regionsShort[region];
 
   const response = await riotInstance.get(
-    `/summoner/${region}/${gameName}/${tagLine}`
+    `summoner/${region}/${gameName}/${tagLine}`
   );
   return response;
 };

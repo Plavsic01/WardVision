@@ -2,7 +2,7 @@ import { riotInstance } from "../utils/axios.js";
 import { useQuery } from "@tanstack/react-query";
 
 const fetchChampionStats = async (championName) => {
-  const response = await riotInstance.get(`/champions/${championName}`);
+  const response = await riotInstance.get(`champions/${championName}`);
   return response.data;
 };
 

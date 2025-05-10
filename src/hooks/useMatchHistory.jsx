@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 
 const fetchMatchHistory = async (puuid, region) => {
   const response = await riotInstance.get(
-    `/match-history/${region}/${puuid}/0/15`
+    `match-history/${region}/${puuid}/0/15`
   );
   return response.data;
 };

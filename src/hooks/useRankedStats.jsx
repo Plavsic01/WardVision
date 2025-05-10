@@ -2,7 +2,7 @@ import { riotInstance } from "../utils/axios.js";
 import { useQuery } from "@tanstack/react-query";
 
 const fetchRankedStats = async (puuid, region) => {
-  const response = await riotInstance.get(`/ranked/${region}/${puuid}`);
+  const response = await riotInstance.get(`ranked/${region}/${puuid}`);
   return response.data;
 };
 

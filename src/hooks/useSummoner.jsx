@@ -18,7 +18,7 @@ const useSummoner = (region, summonerName, delay = 0) => {
       const tagLine = gameTag ?? regionsShort[region];
 
       const response = await riotInstance.get(
-        `/summoner/${region}/${gameName}/${tagLine}`
+        `summoner/${region}/${gameName}/${tagLine}`
       );
       setData(response.data);
     } catch (error) {
