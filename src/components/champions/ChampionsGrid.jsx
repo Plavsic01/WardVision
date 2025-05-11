@@ -3,7 +3,9 @@ import Champion from "./Champion";
 
 const ChampionsGrid = ({ champions, scrollPosition }) => {
   useEffect(() => {
-    window.scrollTo({ top: scrollPosition, behavior: "smooth" });
+    setTimeout(() => {
+      window.scrollTo({ top: scrollPosition, behavior: "smooth" });
+    }, 50);
   }, [scrollPosition]);
 
   return (

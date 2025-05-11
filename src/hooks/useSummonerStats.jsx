@@ -1,7 +1,7 @@
 import { regionsShort } from "../utils/regions.js";
 import { riotInstance } from "../utils/axios.js";
 import { useQuery } from "@tanstack/react-query";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 const fetchSummonerStats = async (region, summonerName) => {
   if (summonerName.trim().length === 0) return;
@@ -17,8 +17,6 @@ const fetchSummonerStats = async (region, summonerName) => {
 };
 
 const useSummonerStats = (region, summonerName, delay = 0) => {
-  const isFirstRender = useRef(true);
-
   const query = useQuery({
     queryKey: ["summonerStats", region, summonerName, delay],
     queryFn: () => fetchSummonerStats(region, summonerName, delay),
@@ -27,11 +25,6 @@ const useSummonerStats = (region, summonerName, delay = 0) => {
   });
 
   useEffect(() => {
-    if (isFirstRender.current === true) {
-      isFirstRender.current = false;
-      return;
-    }
-
     const timeout = setTimeout(() => {
       query.refetch();
     }, delay);

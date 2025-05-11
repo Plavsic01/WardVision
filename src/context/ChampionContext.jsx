@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useCallback } from "react";
 
 const ChampContext = createContext();
 
@@ -21,9 +21,9 @@ const ChampionContext = ({ children }) => {
   const [selectedChampion, setSelectedChampion] = useState("");
   const [scrollPosition, setScrollPosition] = useState(0);
 
-  const handleBackToChampions = () => {
+  const handleBackToChampions = useCallback(() => {
     setSelectedChampion("");
-  };
+  }, []);
 
   const handleSelectedChampion = (champion) => {
     setScrollPosition(window.scrollY);
