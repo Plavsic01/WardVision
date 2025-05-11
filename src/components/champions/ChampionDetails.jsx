@@ -32,10 +32,10 @@ const ChampionDetails = ({ champion, handleBackToChampions }) => {
           </div>
         </div>
         <button
-          className="absolute top-4 right-4 rounded-full bg-[#1e2130] opacity-70 hover:opacity-100"
+          className="absolute top-4 left-4 rounded-full bg-[#1e2130] opacity-70 hover:opacity-100"
           onClick={() => handleBackToChampions()}
         >
-          <ChevronRight className="text-white p-1 md:p-2 md:size-10" />
+          <ChevronRight className="text-white p-1 md:p-2 size-9 md:size-12" />
         </button>
       </div>
       <div className="p-6 border-b border-gray-700">
