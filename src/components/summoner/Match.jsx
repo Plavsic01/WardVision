@@ -71,18 +71,26 @@ const Match = ({ match }) => {
           <div className="flex gap-1">
             <img
               className="size-11"
-              src={`http://localhost:4000/api/champions/champion-icon/${currentSummoner.championName}.png`}
+              src={`${
+                import.meta.env.VITE_API_URL
+              }/api/champions/champion-icon/${
+                currentSummoner.championName
+              }.png`}
               alt="champion-icon"
             />
             <div className="flex flex-col gap-1">
               <img
                 className="size-5"
-                src={`http://localhost:4000/api/spells/summoner-spell/${currentSummoner.summonerD}`}
+                src={`${
+                  import.meta.env.VITE_API_URL
+                }/api/spells/summoner-spell/${currentSummoner.summonerD}`}
                 alt="primary-summoner-spell-icon"
               />
               <img
                 className="size-5"
-                src={`http://localhost:4000/api/spells/summoner-spell/${currentSummoner.summonerF}`}
+                src={`${
+                  import.meta.env.VITE_API_URL
+                }/api/spells/summoner-spell/${currentSummoner.summonerF}`}
                 alt="secondary-summoner-spell-icon"
               />
             </div>
@@ -125,7 +133,9 @@ const Match = ({ match }) => {
                       <li className="size-5">
                         <img
                           className="rounded-sm"
-                          src={`http://localhost:4000/api/items/item-icon/${item.itemId}.png`}
+                          src={`${
+                            import.meta.env.VITE_API_URL
+                          }/api/items/item-icon/${item.itemId}.png`}
                           alt={item.itemId}
                         />
                       </li>
