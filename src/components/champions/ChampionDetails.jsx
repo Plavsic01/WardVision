@@ -1,4 +1,4 @@
-import { Star, ChevronRight } from "lucide-react";
+import { Star, ChevronLeft } from "lucide-react";
 import ChampionSpells from "./ChampionSpells";
 import ChampionStats from "./ChampionStats";
 
@@ -35,7 +35,7 @@ const ChampionDetails = ({ champion, handleBackToChampions }) => {
           className="absolute top-4 left-4 rounded-full bg-[#1e2130] opacity-70 hover:opacity-100"
           onClick={() => handleBackToChampions()}
         >
-          <ChevronRight className="text-white p-1 md:p-2 size-9 md:size-12" />
+          <ChevronLeft className="text-white p-2 size-9 md:size-12" />
         </button>
       </div>
       <div className="p-6 border-b border-gray-700">

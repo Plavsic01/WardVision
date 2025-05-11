@@ -12,8 +12,19 @@ import { useChampionContext } from "../context/ChampionContext";
 const Champions = () => {
   const { data: champions, isLoading, isError } = useChampions();
 
-  const { selectedChampion, handleBackToChampions, scrollPosition } =
-    useChampionContext();
+  const {
+    selectedChampion,
+    handleBackToChampions,
+    scrollPosition,
+    filteredChampions,
+    dispatch,
+  } = useChampionContext();
+
+  useEffect(() => {
+    if (champions) {
+      dispatch({ type: "INIT", payload: champions });
+    }
+  }, [champions, dispatch]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -49,7 +60,7 @@ const Champions = () => {
         {/* GRID */}
         {!selectedChampion && !isLoading && !isError && (
           <ChampionsGrid
-            champions={champions}
+            champions={filteredChampions ?? []}
             scrollPosition={scrollPosition}
           />
         )}

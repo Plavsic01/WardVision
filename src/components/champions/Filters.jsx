@@ -1,29 +1,24 @@
-import { ChevronDown } from "lucide-react";
+import Filter from "./Filter";
+import filters from "../../utils/filterData";
+import { useState } from "react";
 
 const Filters = () => {
+  const [selectedFilter, setSelectedFilter] = useState("");
+
+  const handleSelectedFilter = (filterType) => {
+    setSelectedFilter((prev) => (prev === filterType ? "" : filterType));
+  };
+
   return (
     <section className="mb-6 flex flex-wrap justify-center text-white gap-2">
-      <div className="flex items-center px-2 py-2 text-sm text-white bg-[#1e2130] rounded-md">
-        <span className="text-white text-sm mr-2">Role:</span>
-        <button className="flex items-center">
-          All
-          <ChevronDown className="p-1" />
-        </button>
-      </div>
-      <div className="flex items-center px-2 py-2 text-sm text-white bg-[#1e2130] rounded-md">
-        <span className="text-white text-sm mr-2">Difficulty:</span>
-        <button className="flex items-center">
-          All
-          <ChevronDown className="p-1" />
-        </button>
-      </div>
-      <div className="flex items-center px-2 py-2 text-sm text-white bg-[#1e2130] rounded-md">
-        <span className="text-white text-sm mr-2">Sort By:</span>
-        <button className="flex items-center">
-          Name
-          <ChevronDown className="p-1" />
-        </button>
-      </div>
+      {filters.map((filter) => (
+        <Filter
+          key={filter.id}
+          {...filter}
+          selectedFilter={selectedFilter}
+          handleSelectedFilter={handleSelectedFilter}
+        />
+      ))}
     </section>
   );
 };

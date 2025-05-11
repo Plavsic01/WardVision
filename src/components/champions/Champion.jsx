@@ -7,7 +7,7 @@ const Champion = ({ champion }) => {
   return (
     <button
       className="overflow-hidden rounded-xl cursor-pointer"
-      onClick={() => handleSelectedChampion(champion.name)}
+      onClick={() => handleSelectedChampion(champion.id)}
     >
       <div className="relative aspect-square">
         <img
