@@ -4,6 +4,7 @@ import MainLayout from "../layout/MainLayout";
 import Summoner from "../pages/Summoner";
 import Champions from "../pages/Champions";
 import { ChampionContext } from "../context/ChampionContext";
+import ChampionRotation from "../pages/ChampionRotation";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,14 @@ const router = createBrowserRouter([
         element: (
           <ChampionContext>
             <Champions />
+          </ChampionContext>
+        ),
+      },
+      {
+        path: "/champion-rotation",
+        element: (
+          <ChampionContext>
+            <ChampionRotation />
           </ChampionContext>
         ),
       },

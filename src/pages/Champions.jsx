@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import { Search } from "lucide-react";
 import Filters from "../components/champions/Filters";
@@ -11,6 +11,7 @@ import { useChampionContext } from "../context/ChampionContext";
 
 const Champions = () => {
   const { data: champions, isLoading, isError } = useChampions();
+  const [searchChampion, setSearchChampion] = useState("");
 
   const {
     selectedChampion,
@@ -27,6 +28,14 @@ const Champions = () => {
   }, [champions, dispatch]);
 
   useEffect(() => {
+    const timeout = setTimeout(
+      () => dispatch({ type: "SEARCH", payload: searchChampion }),
+      500
+    );
+    return () => clearTimeout(timeout);
+  }, [searchChampion, dispatch]);
+
+  useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [selectedChampion]);
 
@@ -37,14 +46,16 @@ const Champions = () => {
   } = useChampionStats(selectedChampion);
 
   return (
-    <section className="flex flex-col min-h-screen">
+    <section>
       {/* CHAMPIONS HEADER WITH SEARCH INPUT AND NAVBAR */}
       <header className="bg-[#5383E8]">
-        <div className="relative mx-4">
+        <div className="relative mx-4 md:w-1/3 md:mx-auto">
           <input
             type="text"
             className="px-10 py-2 mt-2 bg-[#1a1a24] text-white focus:outline-none w-full placeholder-gray-400 text-xs rounded-sm"
             placeholder="Search champions..."
+            value={searchChampion}
+            onChange={(e) => setSearchChampion(e.target.value)}
           />
           <Search className="absolute top-3 left-2 text-white p-1" />
         </div>

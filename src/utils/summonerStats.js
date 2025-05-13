@@ -3,6 +3,7 @@ import Jungle from "../assets/roles/Jungle_icon.png";
 import Middle from "../assets/roles/Middle_icon.png";
 import Bottom from "../assets/roles/Bottom_icon.png";
 import Support from "../assets/roles/Support_icon.png";
+import None from "../assets/roles/None.png";
 
 const rolesToImg = {
   TOP: Top,
@@ -10,6 +11,7 @@ const rolesToImg = {
   MIDDLE: Middle,
   BOTTOM: Bottom,
   UTILITY: Support,
+  NONE: None,
 };
 
 export const calculateSummonerStats = (matches) => {
@@ -61,6 +63,9 @@ export const calculateSummonerStats = (matches) => {
     deaths: (totalDeaths / matches.length).toFixed(1),
     assists: (totalAssists / matches.length).toFixed(1),
     mostPlayedChampions: [mostPlayed, secondMostPlayed],
-    prefferedRole: rolesToImg[sortedRoles[0][0]],
+    prefferedRole:
+      sortedRoles.length !== 0
+        ? rolesToImg[sortedRoles[0][0]]
+        : rolesToImg["NONE"],
   };
 };

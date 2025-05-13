@@ -10,8 +10,8 @@ const queryClient = new QueryClient({
     queries: {
       refetchOnWindowFocus: false,
       staleTime: 1000 * 60 * 5, // after 5 min data becomes stale (old)
-      cacheTime: 1000 * 60 * 10, // after data becomes stale how long after to show cached data (no fetching)
-      refetchInterval: 1000 * 60 * 10, // after 10 minutes refetch automatically
+      cacheTime: 1000 * 60 * 10, // afte 10 min data becomes stale how long after to store cached data
+      refetchInterval: 1000 * 60 * 15, // after 15 minutes refetch automatically
     },
   },
 });

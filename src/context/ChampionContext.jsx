@@ -47,6 +47,12 @@ const ChampionContext = ({ children }) => {
   const filteredChampions = useMemo(() => {
     let filteredData = state.allChampions;
 
+    if (state.search) {
+      filteredData = filteredData.filter((champion) =>
+        champion.name.toLowerCase().includes(state.search.trim().toLowerCase())
+      );
+    }
+
     if (state.type) {
       filteredData = filteredData.filter(
         (champion) => champion.tag === state.type
@@ -72,7 +78,13 @@ const ChampionContext = ({ children }) => {
     }
 
     return filteredData;
-  }, [state.type, state.difficulty, state.sortBy, state.allChampions]);
+  }, [
+    state.type,
+    state.difficulty,
+    state.sortBy,
+    state.search,
+    state.allChampions,
+  ]);
 
   return (
     <ChampContext.Provider

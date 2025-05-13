@@ -50,6 +50,11 @@ const reducer = (state, action) => {
         ...state,
         sortBy: action.payload,
       };
+    case "SEARCH":
+      return {
+        ...state,
+        search: action.payload,
+      };
     default:
       return state;
   }
@@ -59,6 +64,7 @@ const initialState = {
   type: "",
   difficulty: "",
   sortBy: "",
+  search: "",
 };
 
 const useChampionFilter = () => {

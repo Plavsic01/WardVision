@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { memo, useEffect } from "react";
 import Champion from "./Champion";
 
 const ChampionsGrid = ({ champions, scrollPosition }) => {
@@ -17,4 +17,4 @@ const ChampionsGrid = ({ champions, scrollPosition }) => {
   );
 };
 
-export default ChampionsGrid;
+export default memo(ChampionsGrid);

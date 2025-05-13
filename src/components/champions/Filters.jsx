@@ -1,6 +1,6 @@
 import Filter from "./Filter";
 import filters from "../../utils/filterData";
-import { useState } from "react";
+import { memo, useState } from "react";
 
 const Filters = () => {
   const [selectedFilter, setSelectedFilter] = useState("");
@@ -23,4 +23,4 @@ const Filters = () => {
   );
 };
 
-export default Filters;
+export default memo(Filters);
