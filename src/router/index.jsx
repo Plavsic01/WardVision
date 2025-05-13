@@ -5,6 +5,7 @@ import Summoner from "../pages/Summoner";
 import Champions from "../pages/Champions";
 import { ChampionContext } from "../context/ChampionContext";
 import ChampionRotation from "../pages/ChampionRotation";
+import Leaderboard from "../pages/Leaderboard";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
             <ChampionRotation />
           </ChampionContext>
         ),
+      },
+      {
+        path: "/leaderboard",
+        element: <Leaderboard />,
       },
     ],
   },

@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import { Search } from "lucide-react";
-import Filters from "../components/champions/Filters";
+import Filters from "../components/Filters";
 import ChampionsGrid from "../components/champions/ChampionsGrid";
 import ChampionDetails from "../components/champions/ChampionDetails";
 import useChampions from "../hooks/useChampions";
 import useChampionStats from "../hooks/useChampionStats";
 import Loading from "../components/Loading";
 import { useChampionContext } from "../context/ChampionContext";
+import { filters } from "../utils/filterData";
 
 const Champions = () => {
   const { data: champions, isLoading, isError } = useChampions();
@@ -66,7 +67,7 @@ const Champions = () => {
 
       <main className="flex-1 max-w-6xl mx-auto w-full px-2 py-4">
         {/* FILTERS */}
-        <Filters />
+        <Filters dispatch={dispatch} filters={filters} />
 
         {/* GRID */}
         {!selectedChampion && !isLoading && !isError && (
