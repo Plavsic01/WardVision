@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const MatchRow = ({ player, gameType }) => {
+  const { region } = useParams();
+
   return (
     <tr className={`${player.win ? "bg-[#2E436F]" : "bg-[#59343b]"}`}>
       <td scope="row" className="pl-5 py-2 whitespace-nowrap">
@@ -30,7 +32,7 @@ const MatchRow = ({ player, gameType }) => {
           </div>
           <div className="pl-2">
             <Link
-              to=""
+              to={`/summoners/${region}/${player.gameName}-${player.tagLine}`}
               target="_blank"
               className="block cursor-pointer text-gray-200 truncate max-w-[120px] overflow-hidden"
             >

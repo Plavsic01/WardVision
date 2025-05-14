@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const Filter = ({
   type,
-  items,
+  payload,
   defaultValue,
   dispatchType,
   dispatch,
@@ -28,17 +28,17 @@ const Filter = ({
       {selectedFilter === type && (
         <div className="absolute top-10 left-0 z-100">
           <div className="bg-[#1C1C1F] rounded-md">
-            {items.map((item) => (
+            {payload.map((item) => (
               <button
                 key={uuidv4()}
                 className="bg-[#28344e] w-full mb-px px-2 py-2 cursor-pointer hover:bg-[#282830]"
                 onClick={() => {
-                  dispatch({ type: dispatchType, payload: item });
-                  setChosenFilter(item);
+                  dispatch({ type: dispatchType, payload: item.type });
+                  setChosenFilter(item.name);
                   handleSelectedFilter("");
                 }}
               >
-                {item}
+                {item.name}
               </button>
             ))}
           </div>
