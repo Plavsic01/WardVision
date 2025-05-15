@@ -26,17 +26,6 @@ const Leaderboard = () => {
     setCurrentPageData(data);
   };
 
-  if (isLoading) {
-    return (
-      <>
-        <Navbar />
-        <main className="flex-1 max-w-6xl mx-auto w-full px-4 py-4">
-          <Loading />
-        </main>
-      </>
-    );
-  }
-
   if (isError) {
     return (
       <div className="h-screen">
@@ -71,6 +60,8 @@ const Leaderboard = () => {
                 region={state.region}
               />
             </div>
+
+            {isLoading && <Loading />}
 
             {leaderboard && (
               <LeaderboardPagination
