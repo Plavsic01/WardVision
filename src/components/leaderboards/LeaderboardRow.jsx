@@ -10,8 +10,8 @@ const LeaderboardRow = ({ summonerStats, region }) => {
         {summonerStats.position}
       </td>
       <td scope="row" className="px-3">
-        <div className="text-center">
-          <Link to={`/summoners/${region}/${data.gameName}/${data.tagLine}`}>
+        <div className="flex flex-col items-center justify-center">
+          <Link to={`/summoners/${region}/${data.gameName}-${data.tagLine}`}>
             <p className="truncate max-w-40 font-bold">{data.gameName}</p>
             <small className="text-gray-400"> #{data.tagLine}</small>
           </Link>

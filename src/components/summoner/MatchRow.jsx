@@ -76,24 +76,22 @@ const MatchRow = ({ player, gameType }) => {
 
       <td scope="row" className="whitespace-nowrap pl-2">
         <div>
-          <ul className="grid grid-cols-8 items-center gap-6 md:gap-1">
+          <ul className="grid grid-cols-8 items-center gap-6">
             {player.items.map((item) => {
               return (
-                <div key={item.id}>
+                <li key={item.id} className="size-5">
                   {item.itemId === 0 ? (
-                    <li className="size-5 bg-[#385199] rounded-sm"></li>
+                    <div className="bg-[#385199] rounded-sm w-full h-full"></div>
                   ) : (
-                    <li className="size-5">
-                      <img
-                        className="rounded-sm"
-                        src={`${
-                          import.meta.env.VITE_API_URL
-                        }/api/items/item-icon/${item.itemId}.png`}
-                        alt={item.itemId}
-                      />
-                    </li>
+                    <img
+                      className="rounded-sm w-full h-full"
+                      src={`${
+                        import.meta.env.VITE_API_URL
+                      }/api/items/item-icon/${item.itemId}.png`}
+                      alt={item.itemId}
+                    />
                   )}
-                </div>
+                </li>
               );
             })}
           </ul>

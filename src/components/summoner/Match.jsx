@@ -1,4 +1,4 @@
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 import MatchDetails from "./MatchDetails";
 
@@ -50,11 +50,19 @@ const Match = ({ match }) => {
               } p-1 rounded-sm`}
               onClick={handleDetailsMenu}
             >
-              <ChevronDown
-                className={`${
-                  currentSummoner.win ? "text-[#5383e8]" : "text-[#e84057]"
-                }`}
-              />
+              {isDetailsOpen ? (
+                <ChevronUp
+                  className={`${
+                    currentSummoner.win ? "text-[#5383e8]" : "text-[#e84057]"
+                  }`}
+                />
+              ) : (
+                <ChevronDown
+                  className={`${
+                    currentSummoner.win ? "text-[#5383e8]" : "text-[#e84057]"
+                  }`}
+                />
+              )}
             </button>
           </div>
         </div>

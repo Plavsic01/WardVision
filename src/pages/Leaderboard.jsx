@@ -40,7 +40,7 @@ const Leaderboard = () => {
             <Filters filters={leaderboardFiltersShort} dispatch={dispatch} />
             {/* <Filters filters={leaderboardFilters} dispatch={dispatch} /> */}
 
-            <div className="rounded-lg overflow-hidden">
+            <div className="rounded-t-lg overflow-hidden">
               <LeaderboardTable
                 leaderboard={currentPageData}
                 region={state.region}
