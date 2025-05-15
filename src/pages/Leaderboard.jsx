@@ -9,6 +9,8 @@ import {
 import LeaderboardPagination from "../components/leaderboards/LeaderboardPagination";
 import LeaderboardTable from "../components/leaderboards/LeaderboardTable";
 import useLeaderboardFilter from "../hooks/useLeaderboardFilter";
+import Loading from "../components/Loading";
+import Error from "../components/Error";
 
 const Leaderboard = () => {
   const [currentPageData, setCurrentPageData] = useState([]);
@@ -24,6 +26,26 @@ const Leaderboard = () => {
     setCurrentPageData(data);
   };
 
+  if (isLoading) {
+    return (
+      <>
+        <Navbar />
+        <main className="flex-1 max-w-6xl mx-auto w-full px-4 py-4">
+          <Loading />
+        </main>
+      </>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className="h-screen">
+        <Navbar />
+        <Error />
+      </div>
+    );
+  }
+
   return (
     <section>
       <Navbar />
@@ -35,10 +57,13 @@ const Leaderboard = () => {
             <p className="text-gray-400 text-sm">Top ranked players</p>
           </div>
           <div className="mt-5">
-            {/* FILTERS (HAVE TO MAKE 2 FILTERS 1 FOR SMALL SCREENS AND 1 FOR LARGE)*/}
+            <div className="hidden lg:block">
+              <Filters filters={leaderboardFilters} dispatch={dispatch} />
+            </div>
 
-            <Filters filters={leaderboardFiltersShort} dispatch={dispatch} />
-            {/* <Filters filters={leaderboardFilters} dispatch={dispatch} /> */}
+            <div className="block lg:hidden">
+              <Filters filters={leaderboardFiltersShort} dispatch={dispatch} />
+            </div>
 
             <div className="rounded-t-lg overflow-hidden">
               <LeaderboardTable

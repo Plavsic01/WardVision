@@ -1,6 +1,7 @@
 import ChampionsGrid from "../components/champions/ChampionsGrid";
 import Loading from "../components/Loading";
 import Navbar from "../components/Navbar";
+import Error from "../components/Error";
 import { useChampionContext } from "../context/ChampionContext";
 import useChampionRotation from "../hooks/useChampionRotation";
 import useChampionStats from "../hooks/useChampionStats";
@@ -20,23 +21,31 @@ const ChampionRotation = () => {
     isError: isChampionError,
   } = useChampionStats(selectedChampion);
 
+  if (isLoading) {
+    return (
+      <>
+        <Navbar />
+        <main className="flex-1 max-w-6xl mx-auto w-full px-4 py-4">
+          <Loading />
+        </main>
+      </>
+    );
+  }
+
+  if (isError) {
+    return (
+      <>
+        <div className="h-screen">
+          <Navbar />
+          <Error />
+        </div>
+      </>
+    );
+  }
+
   return (
     <section>
       <Navbar />
-
-      {isLoading && (
-        <div className="flex justify-center items-center min-h-screen">
-          <Loading />
-        </div>
-      )}
-
-      {isError && (
-        <div className="flex justify-center items-center min-h-screen">
-          <p className="text-red-500 text-lg mb-4">
-            Failed to load champion rotation.
-          </p>
-        </div>
-      )}
 
       <main className="flex-1 max-w-6xl mx-auto w-full px-4 py-4">
         <section>
