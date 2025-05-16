@@ -6,6 +6,7 @@ import Champions from "../pages/Champions";
 import { ChampionContext } from "../context/ChampionContext";
 import ChampionRotation from "../pages/ChampionRotation";
 import Leaderboard from "../pages/Leaderboard";
+import Error from "../pages/Error";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "/leaderboard",
         element: <Leaderboard />,
+      },
+      {
+        path: "*",
+        element: <Error />,
       },
     ],
   },
